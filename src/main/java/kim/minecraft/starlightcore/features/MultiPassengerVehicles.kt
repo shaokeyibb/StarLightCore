@@ -11,7 +11,7 @@ import org.bukkit.event.vehicle.VehicleExitEvent
 
 object MultiPassengerVehicles : Listener {
 
-    private val maxPlayer = getConfig().getInt("Features.MultiPassengerVehicles.MaxPlayer", -1)
+    private val maxPlayer = getConfig().getInt("Features.MultiPassengerVehicles.MaxPlayer", 20)
 
     @EventHandler
     fun joinVehicle(e: PlayerInteractEntityEvent) {

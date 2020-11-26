@@ -9,4 +9,4 @@ Features:
   Features:
     MultiPassengerVehicles:
       Enable: true
-      MaxPlayer: -1
+      MaxPlayer: 20
