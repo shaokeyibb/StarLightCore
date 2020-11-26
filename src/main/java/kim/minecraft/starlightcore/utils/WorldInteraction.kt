@@ -2,11 +2,11 @@ package kim.minecraft.starlightcore.utils
 
 import org.bukkit.Location
 import org.bukkit.block.Block
-import org.bukkit.entity.Player
+import org.bukkit.entity.LivingEntity
 
 object WorldInteraction {
 
-    fun Player.isUnderTree(): Boolean {
+    fun LivingEntity.isUnderTree(): Boolean {
         val maxDistanceBetweenLogAndLeaves = 5
         val treeLeavesNumberAtLeast = 6
         val treeLogUpTo = 1
