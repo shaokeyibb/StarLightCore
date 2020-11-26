@@ -4,6 +4,7 @@ import io.izzel.taboolib.loader.Plugin
 import io.izzel.taboolib.loader.PluginBase
 import io.izzel.taboolib.module.config.TConfig
 import kim.minecraft.starlightcore.features.BreakableBucket
+import kim.minecraft.starlightcore.features.MultiPassengerVehicles
 import org.bukkit.Bukkit
 import org.bukkit.event.HandlerList
 
@@ -54,6 +55,8 @@ object StarLightCore : Plugin() {
     private fun registerFeatures() {
         if (isFeatureEnable("BreakableBucket"))
             Bukkit.getPluginManager().registerEvents(BreakableBucket, plugin)
+        if (isFeatureEnable("MultiPassengerVehicles"))
+            Bukkit.getPluginManager().registerEvents(MultiPassengerVehicles, plugin)
     }
 
     override fun onDisable() {

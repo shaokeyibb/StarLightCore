@@ -1,3 +1,5 @@
 Features:
   BreakableBucket:
     Oops: "&8Oops. 看起来这桶不太结实..."
+  MultiPassengerVehicles:
+    Full: "&c该载具可装载乘客已达到上限"

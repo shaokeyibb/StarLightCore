@@ -5,3 +5,8 @@ Features:
   BreakableBucket:
     Enable: true
     Chance: 0.3
+  # 载具可乘坐更多人
+  Features:
+    MultiPassengerVehicles:
+      Enable: true
+      MaxPlayer: -1
