@@ -1,0 +1,7 @@
+Global:
+  AdminPermission: "starlightcore.admin"
+Features:
+  # 使用桶时有一定几率破碎
+  BreakableBucket:
+    Enable: true
+    Chance: 0.3

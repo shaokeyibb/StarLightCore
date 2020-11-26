@@ -1,10 +1,10 @@
 plugins {
     id 'java'
     id 'io.izzel.taboolib' version '1.2'
-    id 'org.jetbrains.kotlin.jvm' version '1.4.0'
+    id 'org.jetbrains.kotlin.jvm' version '1.4.20'
 }
 
-group = 'io.izzel.taboolib.example'
+group = 'kim.minecraft.starlightcore'
 version = '1.0.0'
 
 sourceCompatibility = '1.8'
