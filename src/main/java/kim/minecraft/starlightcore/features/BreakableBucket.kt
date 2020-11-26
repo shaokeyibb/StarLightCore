@@ -11,11 +11,11 @@ import kotlin.random.Random
 
 object BreakableBucket : Listener {
 
-    private val random = getConfig().getDouble("Features.BreakableBucket.Chance")
+    private val chance = getConfig().getDouble("Features.BreakableBucket.Chance")
 
     @EventHandler
     fun onUseBucket(e: PlayerBucketEvent) {
-        if (Random.nextDouble() <= random) {
+        if (Random.nextDouble() <= chance) {
             e.player.sendMessage(getLocale("Features.BreakableBucket.Oops"))
             when (e.bucket) {
                 Material.BUCKET -> {
