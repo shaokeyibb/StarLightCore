@@ -8,6 +8,7 @@ import kim.minecraft.starlightcore.features.MultiPassengerVehicles
 import kim.minecraft.starlightcore.features.TreeThunder
 import org.bukkit.Bukkit
 import org.bukkit.event.HandlerList
+import java.io.File
 
 object StarLightCore : Plugin() {
 
@@ -43,11 +44,11 @@ object StarLightCore : Plugin() {
     }
 
     private fun releaseResource() {
-        if (plugin.getResource("config.yml") == null) {
+        if (!File(plugin.dataFolder,"config.yml").exists()) {
             info("释放不存在的配置文件 config.yml")
             plugin.saveResource("config.yml", false)
         }
-        if (plugin.getResource("message.yml") == null) {
+        if (!File(plugin.dataFolder,"message.yml").exists()) {
             info("释放不存在的配置文件 message.yml")
             plugin.saveResource("message.yml", false)
         }
