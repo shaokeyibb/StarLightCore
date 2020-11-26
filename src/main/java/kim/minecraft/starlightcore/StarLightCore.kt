@@ -37,7 +37,7 @@ object StarLightCore : Plugin() {
 
     override fun onEnable() {
         releaseResource()
-        registerEvents()
+        registerFeatures()
     }
 
     private fun releaseResource() {
@@ -51,7 +51,7 @@ object StarLightCore : Plugin() {
         }
     }
 
-    private fun registerEvents() {
+    private fun registerFeatures() {
         if (isFeatureEnable("BreakableBucket"))
             Bukkit.getPluginManager().registerEvents(BreakableBucket, plugin)
     }
