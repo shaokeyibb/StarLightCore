@@ -13,7 +13,7 @@ Features:
   TreeThunder:
     Enable: true
     Chance: 0.2
-    IntervalTicks: 20
+    IntervalTicks: 100
     HelmetList:
       - IRON_HELMET
       - GOLDEN_HELMET

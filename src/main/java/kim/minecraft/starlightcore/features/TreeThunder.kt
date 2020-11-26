@@ -12,7 +12,7 @@ import kotlin.random.Random
 
 object TreeThunder {
 
-    private val intervalTicks: Long = getConfig().getLong("Features.TreeThunder.IntervalTicks",20)
+    private val intervalTicks: Long = getConfig().getLong("Features.TreeThunder.IntervalTicks",100)
     private val chance: Double = getConfig().getDouble("Features.TreeThunder.Chance",0.2)
     private val helmetList: List<Material> = getConfig().getStringList("Features.TreeThunder.HelmetList").map { Material.getMaterial(it)!! }
 
