@@ -3,3 +3,5 @@ Features:
     Oops: "&8Oops. 看起来这桶不太结实..."
   MultiPassengerVehicles:
     Full: "&c该载具可装载乘客已达到上限"
+  TreeThunder:
+    Hit: "&c你被闪电击中了！"
