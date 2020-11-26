@@ -11,7 +11,7 @@ import kotlin.random.Random
 
 object BreakableBucket : Listener {
 
-    private val chance = getConfig().getDouble("Features.BreakableBucket.Chance")
+    private val chance = getConfig().getDouble("Features.BreakableBucket.Chance",0.3)
 
     @EventHandler
     fun onUseBucket(e: PlayerBucketEvent) {
