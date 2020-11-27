@@ -5,3 +5,5 @@ Features:
     Full: "&c该载具可装载乘客已达到上限"
   TreeThunder:
     Hit: "&c你被闪电击中了！"
+  PoisonousFood:
+    DeathMessage: "{0} 猝死了."

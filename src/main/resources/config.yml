@@ -17,3 +17,10 @@ Features:
     HelmetList:
       - IRON_HELMET
       - GOLDEN_HELMET
+  # 有毒食品
+  PoisonousFood:
+    Enable: true
+    IntervalTicks: 100
+    # 1000 代表一个小时
+    MinDeathTime: 1000
+    MaxDeathTime: 24000

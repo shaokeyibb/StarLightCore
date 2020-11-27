@@ -5,6 +5,7 @@ import io.izzel.taboolib.loader.PluginBase
 import io.izzel.taboolib.module.config.TConfig
 import kim.minecraft.starlightcore.features.BreakableBucket
 import kim.minecraft.starlightcore.features.MultiPassengerVehicles
+import kim.minecraft.starlightcore.features.PoisonousFood
 import kim.minecraft.starlightcore.features.TreeThunder
 import org.bukkit.Bukkit
 import org.bukkit.event.HandlerList
@@ -32,7 +33,12 @@ object StarLightCore : Plugin() {
 
     fun Any.getAdminPermission(): String = config.getString("Global.AdminPermission", "starlightcore.admin")!!
 
-    private fun isFeatureEnable(featureName: String) = config.getBoolean("Features.$featureName.Enable", false)
+    private fun isFeatureEnable(featureName: String): Boolean {
+        return config.getBoolean("Features.$featureName.Enable", false).also {
+            if (it) info("已启用特性 $featureName")
+            else info("已禁用特性 $featureName")
+        }
+    }
 
     override fun onLoad() {
         // override onLoad()
@@ -44,11 +50,11 @@ object StarLightCore : Plugin() {
     }
 
     private fun releaseResource() {
-        if (!File(plugin.dataFolder,"config.yml").exists()) {
+        if (!File(plugin.dataFolder, "config.yml").exists()) {
             info("释放不存在的配置文件 config.yml")
             plugin.saveResource("config.yml", false)
         }
-        if (!File(plugin.dataFolder,"message.yml").exists()) {
+        if (!File(plugin.dataFolder, "message.yml").exists()) {
             info("释放不存在的配置文件 message.yml")
             plugin.saveResource("message.yml", false)
         }
@@ -61,6 +67,8 @@ object StarLightCore : Plugin() {
             Bukkit.getPluginManager().registerEvents(MultiPassengerVehicles, plugin)
         if (isFeatureEnable("TreeThunder"))
             TreeThunder.run()
+        if (isFeatureEnable("PoisonousFood"))
+            Bukkit.getPluginManager().registerEvents(PoisonousFood, plugin)
     }
 
     override fun onDisable() {
