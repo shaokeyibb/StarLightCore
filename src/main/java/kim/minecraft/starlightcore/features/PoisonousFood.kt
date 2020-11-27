@@ -69,7 +69,8 @@ object PoisonousFood : Listener {
     fun onEat(e: PlayerItemConsumeEvent) {
         if (!e.item.type.isEdible) return
         val nbt = ItemInteraction.getNBTCompound(e.item)
-        if (nbt.getDeep("StarLightCore.PoisonousFood") == null) return
+        if (nbt.getDeep("StarLightCore.PoisonousFood.TimeOn") == null) return
+        if (e.player.scoreboardTags.any { it.startsWith("StarLightCore.PoisonousFood.TimeOn") }) return
         e.player.addScoreboardTag("StarLightCore.PoisonousFood.TimeOn:${Bukkit.getWorlds()[0].fullTime + nbt.getDeep("StarLightCore.PoisonousFood.TimeFor").asLong()}")
         e.player.addScoreboardTag("StarLightCore.PoisonousFood.Killer:${nbt.getDeep("StarLightCore.PoisonousFood.Killer").asString()}")
     }
