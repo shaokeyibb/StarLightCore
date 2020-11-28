@@ -1,6 +1,7 @@
 package kim.minecraft.starlightcore.utils
 
 import org.bukkit.Location
+import org.bukkit.Tag
 import org.bukkit.block.Block
 import org.bukkit.entity.LivingEntity
 
@@ -18,11 +19,11 @@ object WorldInteraction {
         if (!highestBlock.type.name.endsWith("LEAVES")) return false
 
         val blockList = highestBlock.location.get3DBlocksAround(maxDistanceBetweenLogAndLeaves)
-        if (!blockList.stream().anyMatch { it.type.name.endsWith("LOG") }) return false
-        if (blockList.filter { it.type.name.endsWith("LEAVES") }.count() < treeLeavesNumberAtLeast) return false
+        if (!blockList.stream().anyMatch { Tag.LOGS.isTagged(it.type) }) return false
+        if (blockList.filter { Tag.LEAVES.isTagged(it.type) }.count() < treeLeavesNumberAtLeast) return false
 
-        val log = blockList.find { it.type.name.endsWith("LOG") }!!
-        if (!log.location.getYBlocks(treeLogUpTo, treeLogDownTo).all { it.type.name.endsWith("LEAVES") || it.type == log.type }) return false
+        val log = blockList.find { Tag.LOGS.isTagged(it.type) }!!
+        if (!log.location.getYBlocks(treeLogUpTo, treeLogDownTo).all { Tag.LEAVES.isTagged(it.type) || it.type == log.type }) return false
 
         return true
     }
