@@ -7,6 +7,7 @@ import kim.minecraft.starlightcore.features.BreakableBucket
 import kim.minecraft.starlightcore.features.MultiPassengerVehicles
 import kim.minecraft.starlightcore.features.PoisonousFood
 import kim.minecraft.starlightcore.features.TreeThunder
+import kim.minecraft.starlightcore.utils.MetricsLite
 import org.bukkit.Bukkit
 import org.bukkit.event.HandlerList
 import java.io.File
@@ -58,6 +59,8 @@ object StarLightCore : Plugin() {
             info("释放不存在的配置文件 message.yml")
             plugin.saveResource("message.yml", false)
         }
+        info("注册 bStats 监听")
+        MetricsLite(plugin, 9875)
     }
 
     private fun registerFeatures() {
