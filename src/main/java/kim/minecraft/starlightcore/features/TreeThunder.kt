@@ -12,14 +12,14 @@ import kotlin.random.Random
 
 object TreeThunder {
 
-    private val intervalTicks: Long = getConfig().getLong("Features.TreeThunder.IntervalTicks",100)
-    private val chance: Double = getConfig().getDouble("Features.TreeThunder.Chance",0.2)
+    private val intervalTicks: Long = getConfig().getLong("Features.TreeThunder.IntervalTicks", 100)
+    private val chance: Double = getConfig().getDouble("Features.TreeThunder.Chance", 0.2)
     private val helmetList: List<Material> = getConfig().getStringList("Features.TreeThunder.HelmetList").map { Material.getMaterial(it)!! }
 
     fun run() {
         Bukkit.getScheduler().runTaskTimer(StarLightCore.plugin, Runnable {
             Bukkit.getWorlds().forEach { world ->
-                if (world.isThundering) {
+                if (world.hasStorm() && world.isThundering) {
                     world.loadedChunks.forEach { chunk ->
                         chunk.entities.forEach {
                             if (it is LivingEntity
