@@ -2,12 +2,12 @@ package kim.minecraft.starlightcore
 
 import io.izzel.taboolib.loader.Plugin
 import io.izzel.taboolib.loader.PluginBase
+import io.izzel.taboolib.metrics.BStats
 import io.izzel.taboolib.module.config.TConfig
 import kim.minecraft.starlightcore.features.BreakableBucket
 import kim.minecraft.starlightcore.features.MultiPassengerVehicles
 import kim.minecraft.starlightcore.features.PoisonousFood
 import kim.minecraft.starlightcore.features.TreeThunder
-import kim.minecraft.starlightcore.utils.MetricsLite
 import org.bukkit.Bukkit
 import org.bukkit.event.HandlerList
 import java.io.File
@@ -60,7 +60,7 @@ object StarLightCore : Plugin() {
             plugin.saveResource("message.yml", false)
         }
         info("注册 bStats 监听")
-        MetricsLite(plugin, 9875)
+        BStats(plugin)
     }
 
     private fun registerFeatures() {
