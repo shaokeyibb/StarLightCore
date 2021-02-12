@@ -24,3 +24,12 @@ Features:
     # 1000 代表一个小时
     MinDeathTime: 1000
     MaxDeathTime: 24000
+  # 使玩家只有在蹲下时才能拾取物品
+  RealPickup:
+    Enable: true
+  UnsafeTNT:
+    Enable: true
+    # 哑火几率
+    MisfireChange: 0.1
+    # 殉爆几率
+    SabotageChange: 0.1

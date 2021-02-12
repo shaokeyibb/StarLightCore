@@ -4,10 +4,7 @@ import io.izzel.taboolib.loader.Plugin
 import io.izzel.taboolib.loader.PluginBase
 import io.izzel.taboolib.metrics.BStats
 import io.izzel.taboolib.module.config.TConfig
-import kim.minecraft.starlightcore.features.BreakableBucket
-import kim.minecraft.starlightcore.features.MultiPassengerVehicles
-import kim.minecraft.starlightcore.features.PoisonousFood
-import kim.minecraft.starlightcore.features.TreeThunder
+import kim.minecraft.starlightcore.features.*
 import org.bukkit.Bukkit
 import org.bukkit.event.HandlerList
 import java.io.File
@@ -41,13 +38,11 @@ object StarLightCore : Plugin() {
         }
     }
 
-    override fun onLoad() {
-        // override onLoad()
-    }
-
     override fun onEnable() {
         releaseResource()
         registerFeatures()
+        info("注册 bStats 监听")
+        BStats(plugin)
     }
 
     private fun releaseResource() {
@@ -59,8 +54,6 @@ object StarLightCore : Plugin() {
             info("释放不存在的配置文件 message.yml")
             plugin.saveResource("message.yml", false)
         }
-        info("注册 bStats 监听")
-        BStats(plugin)
     }
 
     private fun registerFeatures() {
@@ -72,6 +65,10 @@ object StarLightCore : Plugin() {
             TreeThunder.run()
         if (isFeatureEnable("PoisonousFood"))
             Bukkit.getPluginManager().registerEvents(PoisonousFood, plugin)
+        if (isFeatureEnable("RealPickup"))
+            Bukkit.getPluginManager().registerEvents(RealPickup, plugin)
+        if (isFeatureEnable("UnsafeTNT"))
+            Bukkit.getPluginManager().registerEvents(UnsafeTNT, plugin)
     }
 
     override fun onDisable() {
