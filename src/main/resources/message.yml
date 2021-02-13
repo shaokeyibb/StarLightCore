@@ -7,3 +7,6 @@ Features:
     Hit: "&c你被闪电击中了！"
   PoisonousFood:
     DeathMessage: "{0} 猝死了."
+  UnsafeTNT:
+    MisfireMessage: "&9你感到 TNT 似乎有一些异样..."
+    SabotageMessage: "&9你感到 TNT 似乎有一些异样..."
